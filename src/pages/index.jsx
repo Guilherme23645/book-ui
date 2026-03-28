@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import Home from "./Home"
 import NotFound from "./NotFound"
-import AddUser from "./AddUser"
+import AddUser from "./AddBook"
 
 const Pages = () => {
   return (
