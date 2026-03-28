@@ -1,6 +1,11 @@
+import Navbar from "../components/Navbar"
+
 const App = ({children}) => {
   return (
-    <div>{children}</div>
+    <div>
+        <Navbar />
+        <div>{children}</div>
+    </div>
   )
 }
 
