@@ -7,9 +7,9 @@ const Navbar = () => {
   return (
     <nav>
         <h1>Book Management System</h1>
-        { location.pathname !== "/adduser" &&
+        { location.pathname !== "/addbook" &&
         <button
-          onClick={() => navigate("/adduser")}
+          onClick={() => navigate("/addbook")}
         >
           Add Book
         </button>
