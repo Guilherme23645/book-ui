@@ -2,8 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-const Home = () => {
-  const [books, setBooks] = useState([])
+const Home = ({books, handleBooks}) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const navigate = useNavigate()
@@ -15,7 +14,7 @@ const Home = () => {
 
       try {
         const response = await axios.get("http://localhost:8000/books")
-        setBooks(response.data)
+        handleBooks(response.data)
       } catch (err) {
         setError(err.response?.data || err.message)
       } finally {
@@ -30,7 +29,7 @@ const Home = () => {
     try {
       await axios.delete(`http://localhost:8000/books/${id}`)
 
-      setBooks(prevBooks =>
+      handleBooks(prevBooks =>
         prevBooks.filter(book => book.id !== id)
       )
 

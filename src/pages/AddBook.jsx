@@ -2,9 +2,10 @@ import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-const AddBook = () => {
+const AddBook = ({handleBooks}) => {
   const [bookTitle, setBookTitle] = useState("")
   const [bookAuthor, setBookAuthor] = useState("")
+  const [error, setError] = useState(null)
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
@@ -16,7 +17,7 @@ const AddBook = () => {
         author: bookAuthor
       })
 
-      setBooks(prev => [...prev, response.data])
+      handleBooks(prev => [...prev, response.data])
 
       navigate("/")
     } catch (err) {
@@ -25,23 +26,29 @@ const AddBook = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text"
-        value={bookTitle}
-        onChange={(e) => setBookTitle(e.target.value)}
-        placeholder="Enter title"
-        required
-      />
-      <input
-        type="text"
-        value={bookAuthor}
-        onChange={(e) => setBookAuthor(e.target.value)}
-        placeholder="Enter author"
-        required
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="text"
+          value={bookTitle}
+          onChange={(e) => setBookTitle(e.target.value)}
+          placeholder="Enter title"
+          required
+        />
+        <input
+          type="text"
+          value={bookAuthor}
+          onChange={(e) => setBookAuthor(e.target.value)}
+          placeholder="Enter author"
+          required
+        />
+
+        {error && <p>Error: {error}</p>}
+        
+        <button type="submit">Submit</button>
+      </form>
+      
+    </div>
   )
 }
 
