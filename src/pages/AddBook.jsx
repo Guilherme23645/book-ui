@@ -7,15 +7,21 @@ const AddBook = () => {
   const [bookAuthor, setBookAuthor] = useState("")
   const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    axios.post("http://localhost:8000/books", {
-      title: bookTitle,
-      author: bookAuthor
-    })
+    try {
+      const response = await axios.post("http://localhost:8000/books", {
+        title: bookTitle,
+        author: bookAuthor
+      })
 
-    navigate("/")
+      setBooks(prev => [...prev, response.data])
+
+      navigate("/")
+    } catch (err) {
+      setError(err.response?.data || err.message)
+    }
   }
 
   return (

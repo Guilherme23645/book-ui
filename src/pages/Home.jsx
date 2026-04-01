@@ -9,19 +9,35 @@ const Home = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    setLoading(true)
-    setError(null)
+    const fetchBooks = async () => {
+      setLoading(true)
+      setError(null)
 
-    axios.get("http://localhost:8000/books")
-      .then((response) => setBooks(response.data))
-      .catch((err) => setError(err))
-      .finally(() => setLoading(false))
-  }, [loading])
+      try {
+        const response = await axios.get("http://localhost:8000/books")
+        setBooks(response.data)
+      } catch (err) {
+        setError(err.response?.data || err.message)
+      } finally {
+        setLoading(false)
+      }
+    }
 
-  const deleteBook = (id) => {
-    axios.delete(`http://localhost:8000/books/${id}`)
+    fetchBooks()
+  }, [])
 
-    setLoading(true)
+  const deleteBook = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8000/books/${id}`)
+
+      setBooks(prevBooks =>
+        prevBooks.filter(book => book.id !== id)
+      )
+
+    } catch (err) {
+      const message = err.response?.data || err.message
+      setError(message)
+    }
   }
 
   const rows = books.map((book) => (

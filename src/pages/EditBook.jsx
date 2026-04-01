@@ -8,15 +8,28 @@ const EditBook = () => {
   const navigate = useNavigate()
   const params = useParams()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    axios.put(`http://localhost:8000/books/${params.bookId}`, {
-      title: bookTitle,
-      author: bookAuthor
-    })
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/books/${params.bookId}`,
+        {
+          title: bookTitle,
+          author: bookAuthor
+        }
+      )
 
-    navigate("/")
+      setBooks(prev =>
+        prev.map(book =>
+          book.id === params.bookId ? response.data : book
+        )
+      )
+      
+      navigate("/")
+    } catch (err) {
+      setError(err.response?.data || err.message)
+    }
   }
 
   return (
