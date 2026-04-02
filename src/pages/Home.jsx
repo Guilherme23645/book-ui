@@ -52,8 +52,6 @@ const Home = ({books, handleBooks}) => {
 
   return (
     <div>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
       <table>
         <thead>
           <tr>
@@ -66,6 +64,8 @@ const Home = ({books, handleBooks}) => {
           {rows}
         </tbody>
       </table>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
     </div>
   )
 }
