@@ -40,21 +40,62 @@ const Home = ({books, handleBooks}) => {
   }
 
   const rows = books.map((book) => (
-    <tr key={book.id}>
-      <td>{book.title}</td>
-      <td>{book.author}</td>
+    <tr key={book.id} className="*:p-2 *:border *:border-blue">
+      <td className="text-navy">{book.title}</td>
+      <td className="text-navy">{book.author}</td>
       <td>
-        <button onClick={() => navigate(`/editbook/${book.id}`)}>Edit</button>
-        <button onClick={() => deleteBook(book.id)}>Delete</button>
+        <button
+          className="
+            mr-1
+            border
+            border-white
+            rounded-lg
+            p-2
+            bg-navy
+            text-white
+            hover:border-navy
+            hover:bg-white 
+            hover:text-navy
+            transition
+            duration-500
+            ease-in-out
+          "
+          onClick={() => navigate(`/editbook/${book.id}`)}
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => deleteBook(book.id)}
+          className="
+            border
+            border-white
+            rounded-lg
+            p-2
+            bg-navy
+            text-white
+            hover:border-navy
+            hover:bg-white 
+            hover:text-navy
+            transition
+            duration-500
+            ease-in-out
+          "
+        >
+          Delete
+        </button>
       </td>
     </tr>
   ))
 
   return (
-    <div>
-      <table>
+    <div className="mt-2">
+      <table className="m-auto text-xl border-collapse border border-navy rounded-lg"> 
+        <caption>
+          {loading && <p>Loading...</p>}
+          {error && <p>Error: {error}</p>}
+        </caption>
         <thead>
-          <tr>
+          <tr className="bg-navy text-white *:p-2">
             <th>Title</th>
             <th>Author</th>
             <th>Action</th>
@@ -64,8 +105,6 @@ const Home = ({books, handleBooks}) => {
           {rows}
         </tbody>
       </table>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
     </div>
   )
 }

@@ -5,11 +5,21 @@ const Navbar = () => {
   const location = useLocation()
 
   return (
-    <nav>
-        <h1>Book Management System</h1>
+    <nav className="flex bg-navy text-2xl text-white font-bold p-2 items-center h-[66px]">
+        <button onClick={() => navigate("/")}>Book Management System</button>
         { location.pathname !== "/addbook" &&
         <button
           onClick={() => navigate("/addbook")}
+          className="
+            ml-auto border
+            border-white 
+            rounded-lg p-2 
+            hover:bg-white 
+            hover:text-navy
+            transition
+            duration-500
+            ease-in-out
+          "
         >
           Add Book
         </button>
