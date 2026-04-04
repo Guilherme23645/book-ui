@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
-const EditBook = ({books, handleBooks}) => {
+const EditBook = ({handleBooks}) => {
   const [bookTitle, setBookTitle] = useState("")
   const [bookAuthor, setBookAuthor] = useState("")
   const [error, setError] = useState(null)
