@@ -34,26 +34,66 @@ const EditBook = ({books, handleBooks}) => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="mt-2">
+      <form onSubmit={handleSubmit} className="m-auto w-fit">
         <input 
           type="text"
           value={bookTitle}
           onChange={(e) => setBookTitle(e.target.value)}
           placeholder="Enter new title"
           required
-        />
+          className="
+            outline-navy
+            border-2
+            border-navy
+            rounded-md
+            text-navy
+            placeholder:navy
+            p-1
+            text-xl
+            mb-2
+          "
+        /><br/>
         <input
           type="text"
           value={bookAuthor}
           onChange={(e) => setBookAuthor(e.target.value)}
           placeholder="Enter new author"
           required
-        />
+          className="
+            outline-navy
+            border-2
+            border-navy
+            rounded-md
+            text-navy
+            placeholder:navy
+            p-1
+            text-xl
+            mb-2
+          "
+        /><br/>
 
         {error && <p>Error: {error}</p>}
 
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          className="
+            ml-auto border-2
+            border-navy
+            rounded-lg p-2
+            bg-navy
+            text-white
+            text-xl 
+            hover:border-navy
+            hover:bg-white 
+            hover:text-navy
+            transition
+            duration-500
+            ease-in-out
+          "
+        >
+          Submit
+        </button>
       </form>
     </div>
   )
