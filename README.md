@@ -1,16 +1,45 @@
-# React + Vite
+# book-ui
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The interface of a simple CRUD for books.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Pre-requisites
 
-## React Compiler
+- Git
+- JDK 21
+- Node
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tools
 
-## Expanding the ESLint configuration
+- React
+- React Router
+- Axios
+- Tailwind
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Instructions
+
+- Clone the repository with one of the following commands:
+  - **HTTPS:** `git clone https://github.com/Guilherme23645/book-ui.git`
+  - **SSH:** `git clone git@github.com:Guilherme23645/book-ui.git`
+- This project depends on the [Book API](https://github.com/Guilherme23645/book-api.git) to work, so clone it too and follow its README's instructions
+- Run `npm install` to install dependencies
+- Then, run `npm run dev` to execute the project
+
+## Screenshots
+
+### Code
+
+<img width="1280" height="862" alt="image" src="https://github.com/user-attachments/assets/549fe17b-ed32-4c5a-9a77-3c493550a389" />
+
+### Home Page
+
+<img width="1280" height="862" alt="image" src="https://github.com/user-attachments/assets/19076ab4-5f12-403f-bc24-dae3b9a08c94" />
+
+### Add Book
+
+<img width="1280" height="859" alt="image" src="https://github.com/user-attachments/assets/0e87351a-7c1c-4ed1-ad6d-d608e361e543" />
+
+### Edit Book
+
+<img width="1280" height="859" alt="image" src="https://github.com/user-attachments/assets/62e2fe4a-3e62-4a49-a47d-bf4e0d196be3" />
