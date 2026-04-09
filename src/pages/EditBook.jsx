@@ -9,6 +9,22 @@ const EditBook = ({handleBooks, API_URL}) => {
   const navigate = useNavigate()
   const params = useParams()
 
+  useEffect(() => {
+    const fetchBooks = async () => {
+      setError(null)
+
+      try {
+        const response = await axios.get(`${API_URL}/books/${params.bookId}`)
+        setBookTitle(response.data.title)
+        setBookAuthor(response.data.author)
+      } catch (err) {
+        setError(err.response?.data || err.message)
+      }
+    }
+
+    fetchBooks()
+  }, [])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
