@@ -1,16 +1,18 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
 const EditBook = ({handleBooks, API_URL}) => {
   const [bookTitle, setBookTitle] = useState("")
   const [bookAuthor, setBookAuthor] = useState("")
   const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
   const params = useParams()
 
   useEffect(() => {
     const fetchBooks = async () => {
+      setLoading(true)
       setError(null)
 
       try {
@@ -19,6 +21,8 @@ const EditBook = ({handleBooks, API_URL}) => {
         setBookAuthor(response.data.author)
       } catch (err) {
         setError(err.response?.data || err.message)
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -51,7 +55,12 @@ const EditBook = ({handleBooks, API_URL}) => {
 
   return (
     <div className="mt-2">
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+
+      {!loading && !error && (
       <form onSubmit={handleSubmit} className="m-auto w-fit">
+
         <input 
           type="text"
           value={bookTitle}
@@ -89,8 +98,6 @@ const EditBook = ({handleBooks, API_URL}) => {
           "
         /><br/>
 
-        {error && <p>Error: {error}</p>}
-
         <button
           type="submit"
           className="
@@ -110,7 +117,7 @@ const EditBook = ({handleBooks, API_URL}) => {
         >
           Submit
         </button>
-      </form>
+      </form>)}
     </div>
   )
 }
