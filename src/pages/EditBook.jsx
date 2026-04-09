@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
-const EditBook = ({handleBooks}) => {
+const EditBook = ({handleBooks, API_URL}) => {
   const [bookTitle, setBookTitle] = useState("")
   const [bookAuthor, setBookAuthor] = useState("")
   const [error, setError] = useState(null)
@@ -14,7 +14,7 @@ const EditBook = ({handleBooks}) => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/books/${params.bookId}`,
+        `${API_URL}/books/${params.bookId}`,
         {
           title: bookTitle,
           author: bookAuthor

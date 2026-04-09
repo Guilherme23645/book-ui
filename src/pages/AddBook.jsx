@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-const AddBook = ({handleBooks}) => {
+const AddBook = ({handleBooks, API_URL}) => {
   const [bookTitle, setBookTitle] = useState("")
   const [bookAuthor, setBookAuthor] = useState("")
   const [error, setError] = useState(null)
@@ -12,7 +12,7 @@ const AddBook = ({handleBooks}) => {
     e.preventDefault()
 
     try {
-      const response = await axios.post("http://localhost:8000/books", {
+      const response = await axios.post(`${API_URL}/books`, {
         title: bookTitle,
         author: bookAuthor
       })

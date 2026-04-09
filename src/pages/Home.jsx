@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-const Home = ({books, handleBooks}) => {
+const Home = ({books, handleBooks, API_URL}) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const navigate = useNavigate()
@@ -13,7 +13,7 @@ const Home = ({books, handleBooks}) => {
       setError(null)
 
       try {
-        const response = await axios.get("http://localhost:8000/books")
+        const response = await axios.get(`${API_URL}/books`)
         handleBooks(response.data)
       } catch (err) {
         setError(err.response?.data || err.message)
