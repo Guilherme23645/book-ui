@@ -27,7 +27,7 @@ const Home = ({books, handleBooks, API_URL}) => {
 
   const deleteBook = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/books/${id}`)
+      await axios.delete(`${API_URL}/books/${id}`)
 
       handleBooks(prevBooks =>
         prevBooks.filter(book => book.id !== id)
