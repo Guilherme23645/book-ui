@@ -55,8 +55,8 @@ const EditBook = ({handleBooks, API_URL}) => {
 
   return (
     <div className="mt-2">
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
+      {loading && <p className="text-xl text-navy m-auto">Loading...</p>}
+      {error && <p className="text-xl text-navy m-auto">Error: {error}</p>}
 
       {!loading && !error && (
       <form onSubmit={handleSubmit} className="m-auto w-fit">
