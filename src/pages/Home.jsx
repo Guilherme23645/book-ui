@@ -89,11 +89,11 @@ const Home = ({books, handleBooks, API_URL}) => {
 
   return (
     <div className="mt-2">
+      {loading && <p className="text-xl text-navy text-center">Loading...</p>}
+      {error && <p className="text-xl text-navy text-center">Error: {error}</p>}
+
+      {!loading && !error && (
       <table className="m-auto text-xl border-collapse border border-navy rounded-lg"> 
-        <caption>
-          {loading && <p>Loading...</p>}
-          {error && <p>Error: {error}</p>}
-        </caption>
         <thead>
           <tr className="bg-navy text-white *:p-2">
             <th>Title</th>
@@ -104,7 +104,7 @@ const Home = ({books, handleBooks, API_URL}) => {
         <tbody>
           {rows}
         </tbody>
-      </table>
+      </table>)}
     </div>
   )
 }
