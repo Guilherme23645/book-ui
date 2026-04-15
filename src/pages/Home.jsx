@@ -44,45 +44,47 @@ const Home = ({books, handleBooks, API_URL}) => {
       <td className="text-navy">{book.title}</td>
       <td className="text-navy">{book.author}</td>
       <td>
-        <button
-          className="
-            mr-1
-            border
-            border-white
-            rounded-lg
-            p-2
-            bg-navy
-            text-white
-            hover:border-navy
-            hover:bg-white 
-            hover:text-navy
-            transition
-            duration-500
-            ease-in-out
-          "
-          onClick={() => navigate(`/editbook/${book.id}`)}
-        >
-          Edit
-        </button>
-        <button
-          onClick={() => deleteBook(book.id)}
-          className="
-            border
-            border-white
-            rounded-lg
-            p-2
-            bg-navy
-            text-white
-            hover:border-navy
-            hover:bg-white 
-            hover:text-navy
-            transition
-            duration-500
-            ease-in-out
-          "
-        >
-          Delete
-        </button>
+        <div className="m-auto">
+          <button
+            className="
+              mr-1
+              border
+              border-white
+              rounded-lg
+              p-2
+              bg-navy
+              text-white
+              hover:border-navy
+              hover:bg-white 
+              hover:text-navy
+              transition
+              duration-500
+              ease-in-out
+            "
+            onClick={() => navigate(`/editbook/${book.id}`)}
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => deleteBook(book.id)}
+            className="
+              border
+              border-white
+              rounded-lg
+              p-2
+              bg-navy
+              text-white
+              hover:border-navy
+              hover:bg-white 
+              hover:text-navy
+              transition
+              duration-500
+              ease-in-out
+            "
+          >
+            Delete
+          </button>
+        </div>
       </td>
     </tr>
   ))
