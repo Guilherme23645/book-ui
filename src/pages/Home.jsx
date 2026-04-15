@@ -44,45 +44,51 @@ const Home = ({books, handleBooks, API_URL}) => {
       <td className="text-navy">{book.title}</td>
       <td className="text-navy">{book.author}</td>
       <td>
-        <button
-          className="
-            mr-1
-            border
-            border-white
-            rounded-lg
-            p-2
-            bg-navy
-            text-white
-            hover:border-navy
-            hover:bg-white 
-            hover:text-navy
-            transition
-            duration-500
-            ease-in-out
-          "
-          onClick={() => navigate(`/editbook/${book.id}`)}
-        >
-          Edit
-        </button>
-        <button
-          onClick={() => deleteBook(book.id)}
-          className="
-            border
-            border-white
-            rounded-lg
-            p-2
-            bg-navy
-            text-white
-            hover:border-navy
-            hover:bg-white 
-            hover:text-navy
-            transition
-            duration-500
-            ease-in-out
-          "
-        >
-          Delete
-        </button>
+        <div className="flex justify-center items-center gap-1 md:gap-2 flex-wrap"
+          <button
+            className="
+              mr-1
+              border
+              border-white
+              rounded-lg
+              px-2 py-1 md:p-2
+              bg-navy
+              text-white
+              text-xs md:text-base
+              hover:border-navy
+              hover:bg-white 
+              hover:text-navy
+              transition
+              duration-500
+              ease-in-out
+              cursor-pointer
+            "
+            onClick={() => navigate(`/editbook/${book.id}`)}
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => deleteBook(book.id)}
+            className="
+              border
+              border-white
+              rounded-lg
+              px-2 py-1 md:p-2
+              bg-navy
+              text-white
+              text-xs md:text-base
+              hover:border-navy
+              hover:bg-white 
+              hover:text-navy
+              transition
+              duration-500
+              ease-in-out
+              cursor-pointer
+            "
+          >
+            Delete
+          </button>
+        </div>
       </td>
     </tr>
   ))
@@ -93,7 +99,7 @@ const Home = ({books, handleBooks, API_URL}) => {
       {error && <p className="text-xl text-navy text-center">Error: {error}</p>}
 
       {!loading && !error && (
-      <table className="m-auto table-fixed w-full text-xl border-collapse border border-navy rounded-lg"> 
+      <table className="m-auto table-fixed w-full text-sm md:text-lg border-collapse border border-navy rounded-lg"> 
         <thead>
           <tr className="bg-navy text-white *:p-2">
             <th className="w-1/3">Title</th>
