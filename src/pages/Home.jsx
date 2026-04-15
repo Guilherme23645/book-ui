@@ -96,9 +96,9 @@ const Home = ({books, handleBooks, API_URL}) => {
       <table className="m-auto table-fixed w-full text-xl border-collapse border border-navy rounded-lg"> 
         <thead>
           <tr className="bg-navy text-white *:p-2">
-            <th className="w-2/5">Title</th>
-            <th className="w-2/5">Author</th>
-            <th className="w-1/5">Action</th>
+            <th className="w-2/6">Title</th>
+            <th className="w-2/6">Author</th>
+            <th className="w-2/6">Action</th>
           </tr>
         </thead>
         <tbody>
