@@ -41,8 +41,8 @@ const Home = ({books, handleBooks, API_URL}) => {
 
   const rows = books.map((book) => (
     <tr key={book.id} className="*:p-2 *:border *:border-blue">
-      <td className="text-navy">{book.title}</td>
-      <td className="text-navy">{book.author}</td>
+      <td className="text-navy break-words">{book.title}</td>
+      <td className="text-navy break-words">{book.author}</td>
       <td>
         <div className="flex justify-center items-center gap-1 md:gap-2 flex-wrap"
           <button
@@ -102,9 +102,9 @@ const Home = ({books, handleBooks, API_URL}) => {
       <table className="m-auto table-fixed w-full text-sm md:text-lg border-collapse border border-navy rounded-lg"> 
         <thead>
           <tr className="bg-navy text-white *:p-2">
-            <th className="w-1/3">Title</th>
-            <th className="w-1/3">Author</th>
-            <th className="w-fit">Action</th>
+            <th className="w-[35%]">Title</th>
+            <th className="w-[35%]">Author</th>
+            <th className="w-[30%]">Action</th>
           </tr>
         </thead>
         <tbody>
