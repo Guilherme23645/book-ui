@@ -44,7 +44,7 @@ const Home = ({books, handleBooks, API_URL}) => {
       <td className="text-navy break-words">{book.title}</td>
       <td className="text-navy break-words">{book.author}</td>
       <td>
-        <div className="flex justify-center items-center gap-1 md:gap-2 flex-wrap"
+        <div className="flex justify-center items-center gap-1 md:gap-2 flex-wrap">
           <button
             className="
               mr-1
