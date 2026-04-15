@@ -88,17 +88,17 @@ const Home = ({books, handleBooks, API_URL}) => {
   ))
 
   return (
-    <div className="mt-2">
+    <div className="mt-2 w-full max-w-4xl mx-auto px-4">
       {loading && <p className="text-xl text-navy text-center">Loading...</p>}
       {error && <p className="text-xl text-navy text-center">Error: {error}</p>}
 
       {!loading && !error && (
-      <table className="m-auto text-xl border-collapse border border-navy rounded-lg"> 
+      <table className="m-auto table-fixed w-full text-xl border-collapse border border-navy rounded-lg"> 
         <thead>
           <tr className="bg-navy text-white *:p-2">
-            <th>Title</th>
-            <th>Author</th>
-            <th>Action</th>
+            <th className="w-2/5">Title</th>
+            <th className="w-2/5">Author</th>
+            <th className="w-1/5">Action</th>
           </tr>
         </thead>
         <tbody>
