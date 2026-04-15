@@ -43,7 +43,7 @@ const Home = ({books, handleBooks, API_URL}) => {
     <tr key={book.id} className="*:p-2 *:border *:border-blue">
       <td className="text-navy">{book.title}</td>
       <td className="text-navy">{book.author}</td>
-      <td className="flex flex-wrap justify-evenly">
+      <td>
         <button
           className="
             mr-1
@@ -96,9 +96,9 @@ const Home = ({books, handleBooks, API_URL}) => {
       <table className="m-auto table-fixed w-full text-xl border-collapse border border-navy rounded-lg"> 
         <thead>
           <tr className="bg-navy text-white *:p-2">
-            <th className="w-2/6">Title</th>
-            <th className="w-2/6">Author</th>
-            <th className="w-2/6">Action</th>
+            <th className="w-1/3">Title</th>
+            <th className="w-1/3">Author</th>
+            <th className="w-fit">Action</th>
           </tr>
         </thead>
         <tbody>
