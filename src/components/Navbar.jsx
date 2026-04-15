@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex bg-navy text-xl text-white font-bold p-2 items-center h-[66px]">
-        <button onClick={() => navigate("/")}>Book Management System</button>
+        <button className="cursor-pointer" onClick={() => navigate("/")}>Book Management System</button>
         { location.pathname !== "/addbook" &&
         <button
           onClick={() => navigate("/addbook")}
