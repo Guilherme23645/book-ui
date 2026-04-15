@@ -43,7 +43,7 @@ const Home = ({books, handleBooks, API_URL}) => {
     <tr key={book.id} className="*:p-2 *:border *:border-blue">
       <td className="text-navy">{book.title}</td>
       <td className="text-navy">{book.author}</td>
-      <td>
+      <td className="flex flex-wrap justify-between">
         <button
           className="
             mr-1
