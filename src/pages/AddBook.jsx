@@ -82,6 +82,7 @@ const AddBook = ({handleBooks, API_URL}) => {
             transition
             duration-500
             ease-in-out
+            cursor-pointer
           "
         >Submit</button>
       </form> 
