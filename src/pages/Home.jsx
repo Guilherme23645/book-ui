@@ -1,10 +1,14 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import ConfirmModal from "./ConfirmModal"
 
 const Home = ({books, handleBooks, API_URL}) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [showConfirm, setShowConfirm] = useState(false)
+  const [bookToDelete, setBookToDelete] = useState(null)
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -25,13 +29,16 @@ const Home = ({books, handleBooks, API_URL}) => {
     fetchBooks()
   }, [])
 
-  const deleteBook = async (id) => {
+  const deleteBook = async () => {
     try {
-      await axios.delete(`${API_URL}/books/${id}`)
+      await axios.delete(`${API_URL}/books/${bookToDelete}`)
 
       handleBooks(prevBooks =>
-        prevBooks.filter(book => book.id !== id)
+        prevBooks.filter(book => book.id !== bookToDelete)
       )
+
+      setShowConfirm(false)
+      setBookToDelete(null)
 
     } catch (err) {
       const message = err.response?.data || err.message
@@ -68,7 +75,10 @@ const Home = ({books, handleBooks, API_URL}) => {
             Edit
           </button>
           <button
-            onClick={() => deleteBook(book.id)}
+            onClick={() => {
+              setBookToDelete(book.id)
+              setShowConfirm(true)
+            }}
             className="
               border
               border-white
@@ -111,6 +121,17 @@ const Home = ({books, handleBooks, API_URL}) => {
           {rows}
         </tbody>
       </table>)}
+
+      {showConfirm && (
+        <ConfirmModal
+          message="Are you sure you want to delete this book?"
+          onConfirm={deleteBook}
+          onCancel={() => {
+            setShowConfirm(false)
+            setBookToDelete(null)
+          }}
+        />
+      )}
     </div>
   )
 }
